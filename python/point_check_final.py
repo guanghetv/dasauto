@@ -122,6 +122,7 @@ def atom_point_test(node, item):
         ## 存储埋点服务器的当前时间
         cur_time = datetime.datetime.now() - datetime.timedelta(hours=8)
         print("正在进行的操作是:    " + node[0])
+        os.system('say ' + node[0].split('->')[-1])
         sleep(5)
         if len(node) > 1:
             check(node, cur_time, item)
@@ -181,9 +182,11 @@ def point_check():
             info += str(item_t) + ":" + item_name[item_t] + ' '
         print(info)
         print('')
+        os.system('say 请选择测试编号,并按回车键继续')
         key_input = raw_input("可选编号/q键退出,默认是 "+item_name[item] + ", 按 <ENTER> 键开始......    " )
         if key_input == "q":
             print("测试完毕,正保存测试结果......")
+            os.system('say 测试完毕,正保存测试结果')
             out()
             break
         else:
@@ -194,6 +197,7 @@ def point_check():
             if type(key_input) == int:
                 if key_input > len(item_diagram):
                     print("项目编号不存在,请重新选择")
+                    os.system('say 项目编号不存在,请重新选择')
                     continue
                 else:
                     if item != key_input:
@@ -202,6 +206,7 @@ def point_check():
             else:
                 if key_input != '':
                     print("项目编号不存在,请重新选择")
+                    os.system('say 项目编号不存在,请重新选择')
                     continue
 
         ## 清除上次测试结果
@@ -209,6 +214,7 @@ def point_check():
             eventKey_item_status[key].pop(item, None)
         item_eventKey_correction_set.pop(item, None)
         actions = item_name[item]
+        os.system('say 将要测试的项目是 ' + item_name[item])
         for e in item_diagram[item]:
             actions = actions + '->' + e[0]
             node = copy.deepcopy(e[1])
@@ -238,7 +244,7 @@ def point_check():
                     print(event_key)
         print("-----------------------------------------------------------------")
         print('')
-        print("正在保存测试结果......")
+        os.system('say 测试完毕,正保存测试结果')
         out()
         if item < len(item_diagram):
             item += 1
