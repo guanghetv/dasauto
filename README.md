@@ -5,8 +5,8 @@
 
 对于每一个测试埋点，有五种结果:
 
-   ⋅⋅⋅**1,正确：**埋点预期(schema)的key，实际返回(event)里都有，而且key对应的value一 致；
-         ⋅⋅⋅⋅⋅⋅当预期value为“onlykey”时，表示只测试key是否一致;
+   ⋅⋅⋅**1,正确：**埋点预期(schema)的key，实际返回(event)里都有，而且key对应的value一 致；..
+         ⋅⋅⋅⋅⋅⋅当预期value为“onlykey”时，表示只测试key是否一致;..
          ⋅⋅⋅⋅⋅⋅当预期value为“String/Number/Array/Bool”时,表示还需要测试value数据类型一致。
 
    ⋅⋅⋅**2,错误：**预期的key,实际返回或没有，或对应的value不一致；
